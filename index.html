@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Javascript = keep it simple</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/angular.treeview.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="myApp">
+
+<div class="container-fluid" ng-controller="myController">
+    <div class="row"  >
+        <div class="col-md-3 left-side" style="padding-left:0px;padding-right:0px">
+                <h3 ng-click="closeAllTopics()" style="background-color: rgba(232, 232, 240, 0.25);padding-left:30px;padding-top:10px; padding-bottom:10px;margin-top: 0px;margin-bottom: 0px">
+                    <span style="font-size:23px;">Javascript: Step by Step</span>
+                </h3>
+            <!--{{treeModel | json}}-->
+                <div style="padding: 10px;">
+                    <div
+                            data-angular-treeview="true"
+                            data-tree-id="mytree"
+                            data-tree-model="treeModel"
+                            data-node-id="id"
+                            data-node-label="label"
+                            data-node-children="children">
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-9 right-side">
+            <!--<div ng-view></div>-->
+            <ng-include src="templateUrl()"></ng-include>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/angular.treeview.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/prism.js"></script>
+
+
+</body>
+</html>

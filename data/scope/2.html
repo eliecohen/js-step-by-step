@@ -1,0 +1,11 @@
+{{message}}
+<pre>
+    <code class="language-javascript" prismt>
+        console.log(this.document === document); // true
+        // In web browsers, the window object is also the global object:
+        console.log(this === window); // true
+
+        this.a = 37;
+        console.log(window.a); // 37
+    </code>
+</pre>

@@ -1,0 +1,68 @@
+<div class="stam container-fluid" template1>
+    <h3>Scope: Variable Scope</h3>
+    <ul class="key-message">
+        <li>Javascript variable must be declared prioJavaScript dabord on defini apres on utilise</li>
+        <li>Global variables are variables declared outside a function definition they are accessible everywhere in the code</li>
+        <li>Global variables are bad</li>
+        <li>Changing the value of a variable never changes the underlying primitive or object, it just points the variable to a new primitive or object.</li>
+        <li>JavaScript is a loosely typed or a dynamic language. That means the type will get determined during execution.</li>
+        <li>JavaScript type includes: 1) strings, 2) numbers, 3) arrays, 4) objects, 5) null and 6) undefined and 7) Symbol type</li>
+        <li>A variable declared outside of a function body is a global global variable</li>
+        <li>pass by value by reference </li>
+        <li>a variable declared inside of a function without var is global variable</li>
+        <li>for (var i; )</li>
+        <li>new - the let keyword has officially been added to the ES6 specification</li>
+    </ul>
+    <br/>
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var foo;         //foo is defined.
+foo = 10;        //foo is now a number
+
+var bar = 10;     //foo
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- #################### 2 ######################-->
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var foo;         //foo is defined, but its type is still undefined
+foo = 10;        //foo is now a number
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+// the boolean type
+foo = true;        //foo is a boolean with true
+foo = false;     //foo is a boolean with a false
+
+
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+</div>
+

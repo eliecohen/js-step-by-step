@@ -1,0 +1,48 @@
+
+<!--<ul id="breadcrumbs-two">
+    <li><a href="">Introduction</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="" class="current">4</a></li>
+</ul>-->
+
+<!--<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default">1</button>
+    <button type="button" class="btn btn-default">2</button>
+    <button type="button" class="btn btn-default">3</button>
+</div>-->
+
+<h3>The <b>this</b> Keyword: A Context Dependant </h3>
+<p>"<span style="color: #ffff00">John</span> is running fast because <span style="color: #ffff00">he</span> is trying to catch the train."</p>
+
+similarly the this keyword is used to refer to an object that the function (where this is used) is bound to.
+what determine its meaning is its context:
+
+        <br/>
+        <br/>
+        function are object when a function executes, it gets the this property—a variable with the value of the object that invokes the function where this is used.
+
+
+<br/>
+        <br>
+this is used inside a function (let’s say function A) and it contains the value of the object that invokes function A.
+We need this to access methods and properties of the object that invokes function A
+
+<pre>
+    <code class="language-javascript" prism>
+        var person = {
+            firstName: "Penelope",
+            lastName: "Barrymore",
+            fullName: function () {
+        ​        // Notice we use "this" just as we used "he" in the example sentence earlier?:
+                console.log(this.firstName + " " + this.lastName);
+        ​        // We could have also written this:​
+                console.log(person.firstName + " " + person.lastName);
+            }
+        }
+    </code>
+</pre>
+
+<!--{{message}}-->
+

@@ -1,0 +1,81 @@
+<div class="stam container-fluid" template1>
+    <h3>The String Type</h3>
+    <ul class="key-message">
+        <li>An object is unordered collection of properties. Each property has a name and a value.</li>
+        <li>While property name (aka the key) are alway string, their value can be of any type and can be nested, properity name unique</li>
+        <li>Object variable are mutable can be changed dynamically. We can add, modify and delete ????</li>
+        <li>when a variable refers to an object, the "value" is a reference to the same object.</li>
+        <li>[advance]each property has 3 attributes 1)writable 2) enurable 3)configurable 4) class attribute?</li>
+        <li>[adavance]prototypal inheritance is the mechanism to link object to other object</li>
+
+    </ul>
+    <br/>
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var foo = {name:'Mike',age:39, hasACar:true };
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            the foo variable has three properties 1.name 2.age 3. hasACar
+            Their respective value are <br/>
+            1. '
+        </div>
+    </div>
+
+    <!-- #################### 2 ######################-->
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var foo;         //foo is defined, but its type is still undefined
+foo = 10;        //foo is now a number
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+// the boolean type
+foo = true;        //foo is a boolean with true
+foo = false;     //foo is a boolean with a false
+
+
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+    <!-- #################### 4 ######################-->
+
+    <div class="row code code4" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var a = {name:'mike',age:25};
+var b = a;
+a.name = 'Dan';
+console.log(b.name)   //  Dan
+</code>
+            </pre>
+        </div>
+    </div>
+
+</div>
+

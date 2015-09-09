@@ -1,0 +1,61 @@
+<div class="stam container-fluid" template1>
+    <h3>Scope: Variable Scope</h3>
+    ***currentIndex:{{currentIndex}}***
+    ***total:{{total}}***
+    <ul class="key-message">
+        <li>Global variables are variables declared outside a function definition they are accessible everywhere in the code</li>
+        <li>Global variables are bad</li>
+        <li>A variable can be defined in either local or global scope and will live throughout runtime and can be accessed and altered in any scope.</li>
+        <li>Local variables exist only within the function body of which they are defined (pas if)</li>
+        <li>A variable declared outside of a function body is a global global variable</li>
+        <li>a variable declared inside of a function without var is global variable</li>
+        <li>for (var i; )</li>
+        <li>new - the let keyword has officially been added to the ES6 specification</li>
+    </ul>
+    <br/>
+
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var localVariable = 10; //global scope
+
+function f1 (){
+    localVariable = 9; // local scope
+}
+var xyz = 5;
+y = f(4$);
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            a. Lorem ipsum dolor sit amet,
+            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aeneantt massa.br <br/><br/>
+            b. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec.
+        </div>
+    </div>
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+var localVariable = 10; //global scope
+
+function f2 (){
+    localVariable = 9; // local scope
+}
+var xyz = 5;
+y = f(4$);
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            b. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec.
+        </div>
+    </div>
+
+</div>
+
