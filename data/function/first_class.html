@@ -1,0 +1,106 @@
+<div class="stam container-fluid" template1>
+    <h3>First Class: Function as Value</h3>
+    <ul class="key-message">
+        <li>As seen for example in the function expression method, variable can contain function definition. This property is known as first class variable.</li>
+        <li>Like any other variable, function be pass as argument to function or be return by a function.</li>
+        <li>Passing a anonymous callback function as argument to a function is a well known pattern in javascript</li>
+    </ul>
+    <br/>
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    var foo = function (){.....}
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            This means that any changes to that
+            variable while in the function are completely separate from anything that happens outside the function. (todo: copyright)
+        </div>
+    </div>
+
+
+    <!-- #################### 2 ######################-->
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+// passed as argument example
+
+var filter = function (input){....}
+
+function save(form,filter){
+}
+
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+ <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+    // return by a function
+
+    algorithm = function generate_algorithm(type){
+        if (type == "xxx")
+            return function(){
+                ......
+            }
+    }
+
+    algorithm ();
+
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+    user.save (form_input, function (){
+      //user saved successfully
+    });
+
+
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            This means that any changes to that
+            variable while in the function are completely separate from anything that happens outside the function. (todo: copyright)
+        </div>
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code4" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+// the boolean type
+foo = true;        //foo is a boolean with true
+foo = false;     //foo is a boolean with a false
+
+
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,93 @@
+<div class="stam container-fluid" template1>
+    <!--http://tech.myemma.com/iifes-javascript-control-variable-scope/-->
+    <!--https://en.wikipedia.org/wiki/Immediately-invoked_function_expression-->
+    <h3>IIFE Pattern</h3>
+    <ul class="key-message">
+        <li>Global variables are considered bad practice, they can potentially be modified
+            from anywhere and any part of the program may depend on it. These dependencies increases complexity in software system.</li>
+        <li>We can take advantage of the javascript function scope property to encapsulate global variables and making them private
+            to that function. Note that function call is necessary to assure the code run</li>
+        <li>A more compact way to do the same think can be done using the Immediately Invoked function Expressions (IIFEs) Pattern. TO REMOVE ?It is based on
+            1) An anonymouse function is used and 2) the Immediately-invoked function expressions </li>
+        <li>Javascript does not support block level scoping. IIFE Pattern can be used to simulate them. (Note how variable can be passed to the IIFE Scope)</li>
+    </ul>
+    <br/>
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    // Module A
+    user = {...}
+    foo  = function (){....}  //global
+</code>
+            </pre>
+        </div>
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    // Module B
+    foo  = function (){....}  //global
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- #################### 2 ######################-->
+
+<div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    function run () {
+        a = 10;                  // private
+        foo  = function (){...}  // private
+        foo (5);
+    };
+    run ();
+</code>
+            </pre>
+        </div>
+ </div>
+
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    (function() {
+        a = 10;                  // private
+        foo  = function (){...}  // private
+        foo (5);
+    })();
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- #################### 4 ######################-->
+
+    <div class="row code code4" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    for (var i = 0; i < 10; i++) {
+        (function(i) {
+            ...
+            var private = 100;
+        })(i);
+    }
+
+    echo private; // undefined
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+</div>
+

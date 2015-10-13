@@ -1,0 +1,97 @@
+<div class="stam container-fluid" template1>
+    <h3>Function Declaration & Expression</h3>
+    <ul class="key-message">
+        <li>Function can be defined using either using 1) the function declaration method or 2) the function expression method.
+            Both methods behave exactly the same in their invokation process. They differ in their syntax definition and their evaluation order</li>
+        <li>A function declaration creates (sous...) a new variable using the name of the function and store the new function to it.</li>
+        <li>A function expression is always place a droite ....and return a reference to the function</li>
+        <li>Named function expression are a special type of function expression. Instead of using an anonymous function a name function is used
+        <li>Named function expressions are useful for debugging/profiling application.</li>
+    </ul>
+    <br/>
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+//function declaration
+function foo() { return 1; }
+
+//function expression
+var foo = function() { return 1; }
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+
+        </div>
+    </div>
+
+    <!-- #################### 2 ######################-->
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    //function declaration
+    function foo() { return 1; }
+</code>
+            </pre>
+        </div>
+        Code is evaluated AS....
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            picture with foo variable is create with the function inside
+        </div>
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    //function expression
+    foo = function() { ..... }
+
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            picture showing the function is store in the variable
+        </div>
+    </div>
+
+    <!-- #################### 4 ######################-->
+
+    <div class="row code code4" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    //function expression
+
+    //anonymous
+    var foo = function() { return 1; }
+
+    //named
+    var foo = function boo() { return 1; }
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            picture showing the function is store in the variable
+        </div>
+    </div>
+
+    <!-- #################### 5 ######################-->
+
+    <div class="row code code5" style="margin-left: 10px">
+        <div class="col-md-12">
+            picutre of debugger with anonymous and name function
+        </div>
+    </div>
+
+
+</div>
+

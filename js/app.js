@@ -61,7 +61,7 @@
                 $('.code').hide();
                 $('.code1').show();
 
-                $( "body" ).keypress(function() {
+                $( "body#b1" ).keypress(function() {
                     // user press the '1' .....'n' button
                     if ( event.which >= 49 && event.which < 56) {
                         var n = event.which - 48;
@@ -71,12 +71,12 @@
                     else if  (event.which === 32){
                         console.log(event);
                         event.preventDefault();
-                        return;
-                        //console.log("total=###",total);
-                        //console.log("currentIndex=###",scope.currentIndex);
-                        //scope.$apply(function () {
-                            //scope.currentIndex = scope.currentIndex + 1;
-                        //})
+                        //return;
+                        console.log("total=###",total);
+                        console.log("currentIndex=###",scope.currentIndex);
+                        scope.$apply(function () {
+                            scope.currentIndex = scope.currentIndex + 1;
+                        })
                         //if (scope.currentIndex+1 <= total){
                          //   console.log("increment currentIndex")
                             //scope.currentIndex = scope.currentIndex+1 ;
@@ -165,38 +165,46 @@
 
     });
 
-    // create the controller and inject Angular's $scope
-    myApp.controller('mainController', function($scope) {
-        // create a message to display in our view
-        $scope.message = 'Everyone come and see how good I look!';
-    });
-
-    myApp.controller('contactController', function($scope) {
-        $scope.message = 'Contact us! JK. This is just a demo.';
-    });
-
-
-
-
-    //test controller
     myApp.controller('myController', function($scope,$location){
 
-        $scope.color = "merde";
-        $scope.ttt = "eeeeeeeeeeee";
+        $scope.init = function init (){
+            $scope.closeAllTopics();
 
-        $scope.topic = "home";
-        $scope.page = "home";
+            var id = $location.url().substr(1);
 
-
-        $scope.closeAllTopics = function(){
-                console.log("close all parents");
-                angular.forEach($scope.treeModel, function(topicItem, topicKey) {
-                    topicItem.collapsed = true;
-                });
+            $scope.gotoId(id);  // remove the trailing slash  '/number' from url
+            $scope.updateTree(id);
         };
 
+        $scope.updateTree = function updateTree (id){
+            console.log("update tree");
+            var found;
+            angular.forEach($scope.treeModel, function(topicItem, topicKey) {
+                found = false;
+                if (topicItem.hasOwnProperty('children')){
+                    angular.forEach(topicItem.children, function(item, key) {
+                        if (item.id === id){
+                            found = true;
+                            topicItem.collapsed = false;
+                            item.selected = "selected";
+                        }
+                    });
+                    if (!found)
+                        topicItem.collapsed = true;
+                }
+            });
 
-        $scope.closeAllOtherTopics = function(id){
+        };
+
+        $scope.closeAllTopics = function closeAllTopics(){
+            console.log("close all parents");
+            angular.forEach($scope.treeModel, function(topicItem, topicKey) {
+                if (topicItem.hasOwnProperty("children"))
+                    topicItem.collapsed = true;
+            });
+        };
+
+        $scope.closeAllOtherTopics = function closeAllOtherTopics(id){
             console.log("close all parents");
             var found;
             angular.forEach($scope.treeModel, function(topicItem, topicKey) {
@@ -213,24 +221,28 @@
             });
         };
 
-        $scope.templateUrl = function() {
-            return "data/"+$scope.topic+"/"+$scope.page+".html";
+        $scope.templateUrl = function templateUrl() {
+            if (!$scope.topic)
+                return "data/" + $scope.page + ".html";   //home page
+
+            return "data/" + $scope.topic + "/" + $scope.page + ".html";
         };
 
 
         //test tree model 1
         $scope.treeModel = [
+            {"label":"Home","id":"home"},
             { "label" : "Variables & Data Types", "id" : "dataType", "children" : [
                 { "label" : "Dynamic Nature", "id" : "dynamic"},
                 { "label" : "The String Type", "id" : "string"},
                 { "label" : "The Number Type", "id" : "number"},
                 { "label" : "The Boolean Type", "id" : "boolean"},
-                { "label" : "The Null Type", "id" : "string3"},
+                { "label" : "The Null Type", "id" : "null"},
                 { "label" : "The Undefined Type", "id" : "string2"},
                 { "label" : "The Object Type", "id" : "object"}
             ]},
             { "label" : "Objects", "id" : "dataType", "children" : [
-                { "label" : "", "id" : "dynamic3"},
+                { "label" : "rwer", "id" : "dynamic3"},
                 { "label" : "Creating Objects", "id" : "string4"},
                 { "label" : "Modifying Objects", "id" : "string5"},
                 { "label" : "Enumerating Properties", "id" : "string6"},
@@ -239,16 +251,22 @@
                 { "label" : "Object Serialization", "id" : "string9"}
             ]},
             { "label" : "Array", "id" : "array", "children" : [
-                { "label" : "intro", "id" : "array_intro"}
+                { "label" : "Introduction", "id" : "array_intro"},
+                { "label" : "Array Creation", "id" : "array_creation"},
+                { "label" : "Array Modification", "id" : "array_modification"}
             ]},
             { "label" : "Function", "id" : "function", "children" : [
-                { "label" : "Dynamic Nature", "id" : "f1"}
+                { "label" : "Function Introduction", "id" : "function1"},
+                { "label" : "Declaration & Expression", "id" : "declaration_expression"},
+                { "label" : "Evaluation Order", "id" : "evaluation_order"},
+                { "label" : "First Class: Function as Value", "id" : "first_class"}
             ]},
             { "label" : "Scope", "id" : "scope", "children" : [
-                { "label" : "function scope", "id" : "intro"}
+                { "label" : "function scope", "id" : "intro"},
+                { "label" : "The IIFE Pattern", "id" : "iife"}
             ] },
             { "label" : "Closure", "id" : "closure", "children" : [
-                { "label" : "function scope", "id" : "intro56456"}
+                { "label" : "Intro Closure", "id" : "intro-closure"}
             ] },
             { "label" : "The this keyword", "id" : "this", "children" : [
                 { "label" : "function scope", "id" : "intro234234"},
@@ -267,10 +285,10 @@
 
         ];
 
-        $scope.getParentNode = function (id){
+        $scope.getParentNode = function getParentNodegetParentNode(id){
             var parentId;
             var parentLabel;
-            var result;
+            var result={label:null,id:null};
 
             console.log("looking for ",id);
 
@@ -292,39 +310,39 @@
             return result;
         };
 
+        $scope.gotoId = function gotoId (id){
+
+            var parent = $scope.getParentNode(id);
+
+            console.log("--------------2",id,parent);
+
+            if (!id || !parent.id){
+                $scope.topic = null;
+                $scope.page = "home";
+                $location.path("home");
+                $scope.closeAllTopics();
+                return;
+            }
+            else{
+                $scope.topic = parent.id;
+                $scope.page = id;
+                $location.path(id);
+                $scope.closeAllOtherTopics(id);
+            }
+        }
+
         $scope.$watch( 'mytree.currentNode', function( newObj, oldObj ) {
             if( $scope.mytree && angular.isObject($scope.mytree.currentNode) ) {
-                //console.log( 'Node Selected!!' );
                 //console.log("current id",$scope.mytree.currentNode.id );
-                var parent = $scope.getParentNode($scope.mytree.currentNode.id);
-                $scope.topic = parent.id;
-                $scope.page = $scope.mytree.currentNode.id;
-                console.log("parent-out",parent);
-                $location.path($scope.mytree.currentNode.id);
-                $scope.closeAllOtherTopics($scope.mytree.currentNode.id);
+                $scope.gotoId($scope.mytree.currentNode.id);
             }
         }, false);
 
-    });
-
-    myApp.controller('scope-function-controller', function($scope,$location,$http){
-        ///$scope.code = "var aaaa = 1;\nvar person = {firstName: 'Penelope'};";
-
-
-        $http.get('1.js').
-            then(function(response) {
-                console.log("##########################",response);
-                $scope.code = response.data;
-                // this callback will be called asynchronously
-                // when the response is available
-            }, function(response) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
+        $scope.$watch('currentIndex', function(newObj, oldObj){
+            console.log("old",oldObj,"new",newObj);
+        });
 
     });
-
-
 
 
 

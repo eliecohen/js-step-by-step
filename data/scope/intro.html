@@ -1,61 +1,140 @@
 <div class="stam container-fluid" template1>
     <h3>Scope: Variable Scope</h3>
-    ***currentIndex:{{currentIndex}}***
-    ***total:{{total}}***
     <ul class="key-message">
-        <li>Global variables are variables declared outside a function definition they are accessible everywhere in the code</li>
-        <li>Global variables are bad</li>
-        <li>A variable can be defined in either local or global scope and will live throughout runtime and can be accessed and altered in any scope.</li>
-        <li>Local variables exist only within the function body of which they are defined (pas if)</li>
-        <li>A variable declared outside of a function body is a global global variable</li>
-        <li>a variable declared inside of a function without var is global variable</li>
-        <li>for (var i; )</li>
-        <li>new - the let keyword has officially been added to the ES6 specification</li>
+        <li>The scope of a variable is controlled by its declaration location. JavaScript has two type of scopes, global and local</li>
+        <li>
+            Global variables are variables declared outside a function definition.
+            They are accessible and can be altered everywhere in the code. In a browser context thay are attached to the
+            window object. in the nodejs context to the ......</li>
+        <li>Local variables exist only within the function body of which they are defined</li>
+        <li>unlike many other languages, Javascript does not support block level scoping</li>
+        <li>Variable should always be declared with the var keyword, Otherwise transform to global one. To avoid error strict
+            it is best practice to executed in "strict mode" (by adding the "strict mode" in ) With strict mode, you c (move to a new page?)</li>
     </ul>
     <br/>
 
+<!-- ############################## intro ############################### -->
+
 
     <div class="row code code1" style="margin-left: 10px">
-        <div class="col-md-6">
-            <pre class="pre-code line-numbers">
-<code class="language-javascript" prism>
-var localVariable = 10; //global scope
-
-function f1 (){
-    localVariable = 9; // local scope
-}
-var xyz = 5;
-y = f(4$);
-</code>
-            </pre>
-        </div>
-        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
-            a. Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aeneantt massa.br <br/><br/>
-            b. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-            ultricies nec.
+        <div class="col-md-12">
+           picture
         </div>
     </div>
+
+<!-- ############################## global variable ############################### -->
+
 
     <div class="row code code2" style="margin-left: 10px">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <pre class="pre-code line-numbers">
 <code class="language-javascript" prism>
-var localVariable = 10; //global scope
 
-function f2 (){
-    localVariable = 9; // local scope
+var ba = 10; //global variable identical to window.ba = 10;
+
+function foo (){
+    ..
 }
-var xyz = 5;
-y = f(4$);
+
 </code>
             </pre>
         </div>
-        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
-            b. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-            ultricies nec.
-        </div>
     </div>
+
+<!-- ############################## local variable ###############################-->
+
+<div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+function foo (){
+    var ba = 10;   //local variable
+}
+
+</code>
+            </pre>
+        </div>
+    <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+    function foo (){
+
+        var go = 5;      // go is private to foo and boo
+
+        function boo (){
+            var ba = 10   // ba  is private to boo
+        }
+    }
+
+</code>
+            </pre>
+    </div>
+    </div>
+</div>
+
+<!-- ############################## Block level ###############################-->
+
+<div class="row code code4" style="margin-left: 10px">
+    <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+    function foo (){
+      var ba = 10;   //local variable
+    }
+
+</code>
+            </pre>
+    </div>
+    <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+function foo (){
+
+  if (true){
+    var i = 10;
+  }
+  echo i;  // i = 10
+}
+
+</code>
+            </pre>
+    </div>
+</div>
+</div>
+
+<!-- ############################## without var ############################### -->
+
+<div class="row code code5" style="margin-left: 10px">
+    <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+function foo (){
+    ba = 10;    // missing var keyword make it a global variable
+}
+
+</code>
+            </pre>
+    </div>
+    <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+    "use strict";
+
+    function foo (){
+    ba = 10;    // error
+    }
+
+</code>
+            </pre>
+    </div>
+
 
 </div>
 
+</div>

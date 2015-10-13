@@ -1,0 +1,112 @@
+<div class="stam container-fluid" template1>
+    <h3>Function Declaration & Expression Evaluation Order</h3>
+    <ul class="key-message">
+        <li>Function expressions are evaluated in their respective place. Thus calling a function before it is declared will  throw an error </li>
+        <li>Function declarations are always evaluated before the rest of the code. Thus the location of the call has n.... </li>
+        <li>Named function is a special type of function expression. Instead of an anonymous function a name one is used.
+            named function expressions are useful for debugging and profiling
+
+    </ul>
+    <br/>
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+foo() // throw an error (which one)
+
+var foo = function() { return 1; }
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+
+        </div>
+    </div>
+
+    <!-- #################### 2 ######################-->
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    foo();   //no problem
+
+    function foo() { return 1; } //function declaration
+
+    -------  INTERNAL EVALUATION ORDER  ---------
+
+    function foo() { return 1; }  // this is evaluated first
+
+    foo();
+
+</code>
+            </pre>
+        </div>
+        Code is evaluated AS....
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+    foo(2);   // throw an error
+    //function expression
+    function foo() { return 1; }
+
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            This means that any changes to that
+            variable while in the function are completely separate from anything that happens outside the function. (todo: copyright)
+        </div>
+    </div>
+
+    <!-- #################### 4 ######################-->
+
+    <div class="row code code4" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+function f(y){
+  y = 5;
+}
+
+var x = 4;
+f(x);
+console.log(x);   // x = 4
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            This means that any changes to that
+            variable while in the function are completely separate from anything that happens outside the function. (todo: copyright)
+        </div>
+    </div>
+
+    <!-- #################### 5 ######################-->
+
+    <div class="row code code5" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+// the boolean type
+foo = true;        //foo is a boolean with true
+foo = false;     //foo is a boolean with a false
+
+
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+</div>
+

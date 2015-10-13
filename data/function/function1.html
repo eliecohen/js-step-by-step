@@ -1,0 +1,101 @@
+<div class="stam container-fluid" template1>
+    <h3>Function 1?</h3>
+    <ul class="key-message">
+        <li>like other language Javascript .....phrase general </li>
+        <li>you call pass arguments to a function (they will get matched up with the parameters in the function definition [copyright).</li>
+        <li>object are passed by reference</li>
+        <li>primitive type variable such as string, number, are passed in by value. </li>
+        <li>Functions can return things too</li>
+    </ul>
+    <br/>
+
+    {{currentIndex}}
+
+    <!-- #################### 1 ######################-->
+
+    <div class="row code code1" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+function f(name,age,has_a_car){
+    echo name;       // mike
+    echo age;        // 24
+    echo has_a_car;  //true
+}
+
+f('mike',24,true);
+
+
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+
+        </div>
+    </div>
+
+    <!-- #################### 2 ######################-->
+
+    <div class="row code code2" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+function f(y){
+  y.name = "peter";
+}
+
+var x = {name:"mike"};
+f(x);
+console.log(x.name);   // peter
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            This means that any changes to that
+            variable while in the function are completely separate from anything that happens outside the function. (todo: copyright)
+        </div>
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code3" style="margin-left: 10px">
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+function f(y){
+  y = 5;
+}
+
+var x = 4;
+f(x);
+console.log(x);   // x = 4
+</code>
+            </pre>
+        </div>
+        <div style="margin-top: 20px;color: lightblue;" class="col-md-6">
+            This means that any changes to that
+            variable while in the function are completely separate from anything that happens outside the function. (todo: copyright)
+        </div>
+    </div>
+
+    <!-- #################### 3 ######################-->
+
+    <div class="row code code4" style="margin-left: 10px">
+        <div class="col-md-12">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+// the boolean type
+foo = true;        //foo is a boolean with true
+foo = false;     //foo is a boolean with a false
+
+
+foo = "abc";     //foo is now a string
+foo = true;      //foo is now a boolean
+</code>
+            </pre>
+        </div>
+    </div>
+
+
+</div>
+
