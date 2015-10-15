@@ -1,7 +1,7 @@
 <div class="stam container-fluid" template1>
     <h3>Example 2</h3>
     <ul class="key-message">
-        <li>timeout
+        <li>timeout in loop
         </li>
 
        <!-- functions are first-class object, they can be manipulated and pass as argument to other function like any other data type.
@@ -46,15 +46,15 @@
             <pre class="pre-code line-numbers">
 <code class="language-javascript" prism>
 
-    UpdateUserPassword (request,response){
-        ...
-        user = retrieveCurrentUser();
-        user.password = request.password;
-        user.save (function {
-            console.log ("password changed");
-            response.json(user);
-        });
+    //https://coderwall.com/p/_ppzrw/be-careful-with-settimeout-in-loops
+
+    for (i = 1; i <= 5; ++i) {
+        setTimeout(function(){
+            console.log(i);
+        }, 1000);
     }
+
+    //This will output the value 6 five times, which is not the intention.
 
 </code>
             </pre>
