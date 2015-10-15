@@ -266,7 +266,10 @@
                 { "label" : "The IIFE Pattern", "id" : "iife"}
             ] },
             { "label" : "Closure", "id" : "closure", "children" : [
-                { "label" : "Intro Closure", "id" : "intro-closure"}
+                { "label" : "Intro Closure", "id" : "intro-closure"},
+                { "label" : "Closure Mechanism", "id" : "closure_mechanism"},
+                { "label" : "Closure Example 1", "id" : "closure-example1"},
+                { "label" : "Closure Example 2", "id" : "closure-example2"}
             ] },
             { "label" : "The this keyword", "id" : "this", "children" : [
                 { "label" : "function scope", "id" : "intro234234"},
