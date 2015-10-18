@@ -1,7 +1,14 @@
 <div class="stam container-fluid" template1>
     <h3>Example 2</h3>
     <ul class="key-message">
-        <li>timeout in loop
+        <li>It is important to undertand that the callback function can access to the lexical? context.(au moment de sa sortie) not a snapshot when the callback was 
+        The example bellow illustrate this. <br/>
+        
+        
+        the variable i exists in the scope of the closureExample function and is not accessible externally
+while looping through the variable the console.log statement is not immediately executed
+console/log will be executed asynchronously 3 times, and only after each timeout of 1 second elapses
+This means that 3 timeouts are set, and then the closureExample returns almost immediately (copy)
         </li>
 
        <!-- functions are first-class object, they can be manipulated and pass as argument to other function like any other data type.
@@ -21,18 +28,33 @@
         <div class="col-md-6">
             <pre class="pre-code line-numbers">
 <code class="language-javascript" prism>
+function foo() {
 
-    foo (){
-
-        var color = "yellow";
-
-        ftp.upload ( function (){
-            console.log("ftp upload completed");
-            console.log(color);
-        }
-
-        console.log ("exit foo");
+    var i = 0;
+ 
+    for (i = 0; i< 3 ;i++) {    
+        setTimeout(function() {
+            console.log("callback",i);
+        }, 1000);
     }
+    
+    console.log("foo",i);
+ 
+}
+
+foo();  
+</code>
+            </pre>
+        </div>
+        <div class="col-md-6">
+            <pre class="pre-code line-numbers">
+<code class="language-javascript" prism>
+
+// foo 3
+// callback 3
+// callback 3
+// callback 3
+
 </code>
             </pre>
         </div>
